@@ -5,49 +5,14 @@ import { Download } from "lucide-react"
 
 export default function Navbar() {
   const handleDownloadResume = () => {
-    // Create a blob with resume content (you can replace this with actual PDF data)
-    const resumeContent = `
-Vinoth Anand Gani
-Email: vinayvincth7@gmail.com
-Phone: +91 XXXXXXXXXX
-
-PROFILE
-Aspiring Full-stack developer with a strong foundation in front-end development and a growing proficiency in back-end technologies. Skilled in creating responsive and user-friendly web interfaces using NEXT.js, React and JavaScript. Currently expanding expertise in server-side development, scalable and robust APIs and databases to build complete, scalable web applications. Passionate about building clean codes, continuous learning and impactful changes in digital world.
-
-EDUCATION
-B Tech in CSE (Jul 2024 - May 2028)
-SRM INSTITUTE OF SCIENCE AND TECHNOLOGY
-Currently going to be a 2nd year student in Computer science and engineering
-
-SKILLS
-Frontend: HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS, ShadCN UI, Chakra UI, Material UI
-Backend: Node.js, Express.js, MongoDB, Mongoose, PostgreSQL, Prisma, Redis, Socket.io
-Cloud & Services: Firebase, Supabase, AWS (S3), Docker
-Version Control: Git, GitHub
-Deployment & DevOps: Docker, AWS, Vercel, Netlify, Railway
-
-EMPLOYMENT
-Development Team Lead - Codekrafters club, Chennai (May 2025 - Present)
-Web developer Intern - Freshtronics, Chennai (Jul 2025 - Present)
-
-PROJECTS
-1. TaskProX - Real-time team collaboration platform
-2. Job Board - Full-stack job application platform
-3. Vinktree - Link-in-bio SaaS platform
-4. Cloud Box - File storage and sharing service
-5. Ofy - Furniture e-commerce website
-6. Habify - Habit tracking application
-    `
-
-    const blob = new Blob([resumeContent], { type: "text/plain" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = "Vinoth_Anand_Gani_Resume.pdf"
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    // Create a link to the PDF file in the public folder
+    const link = document.createElement("a")
+    link.href = "/Vinoth-Resume.pdf"
+    link.download = "Vinoth-Anand-Gani-Resume.pdf"
+    link.target = "_blank"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (

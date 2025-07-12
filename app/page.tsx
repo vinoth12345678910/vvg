@@ -7,6 +7,7 @@ import About from "@/components/about"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import Starfield from "@/components/starfield"
+import Starfield3D from "@/components/starfield3d"
 
 export default function Home() {
   useEffect(() => {
@@ -32,6 +33,11 @@ export default function Home() {
       <div className="relative z-20 bg-transparent">
         <Navbar />
         <Hero />
+      </div>
+      
+      {/* 3D Star background for other sections */}
+      <Starfield3D />
+      <div className="relative z-10">
         <About />
         <Projects />
         <Contact />
