@@ -5,7 +5,6 @@ import { Download } from "lucide-react"
 
 export default function Navbar() {
   const handleDownloadResume = () => {
-    // Create a link to the PDF file in the public folder
     const link = document.createElement("a")
     link.href = "/Vinoth-Resume.pdf"
     link.download = "Vinoth-Anand-Gani-Resume.pdf"
@@ -23,14 +22,16 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo / Title */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="text-xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
           >
-            Vinoth Anand
+            Vinoth Anand Gani
           </motion.div>
 
-          <div className="hidden md:flex space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8 items-center">
             {["About", "Projects"].map((item) => (
               <motion.a
                 key={item}
@@ -49,6 +50,19 @@ export default function Navbar() {
               className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
             >
               <Download size={16} />
+              <span>Resume</span>
+            </motion.button>
+          </div>
+
+          {/* Mobile Resume Button */}
+          <div className="md:hidden">
+            <motion.button
+              onClick={handleDownloadResume}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center space-x-1 text-sm bg-gradient-to-r from-blue-600 to-purple-600 px-3 py-1.5 rounded-full text-white shadow-md"
+            >
+              <Download size={14} />
               <span>Resume</span>
             </motion.button>
           </div>
